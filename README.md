@@ -1,2 +1,2 @@
-Epistemic logic in lean4 
+Epistemic logic in lean4 --
 Work in progress
