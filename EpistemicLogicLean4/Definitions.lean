@@ -2,6 +2,7 @@ set_option autoImplicit false
 
 -- Definition of a formula in epistemic  logic
 
+
 inductive formula where
 | bottom: formula
 | atomic_prop: Char → formula
@@ -14,6 +15,7 @@ inductive formula where
 
 --notations for constructors
 
+@[simp]
 def prop (c : Char) : formula := formula.atomic_prop c
 prefix:80 "~" => formula.not
 prefix:70 "K" => formula.box
@@ -24,8 +26,10 @@ notation "⊥" => formula.bottom
 
 -- defining conjunction and disjunction
 
+@[simp]
 def form_and (φ  ψ : formula) : formula := ~ (φ ↣ ~ψ)
 infix:60 "⋏" => form_and
 
+@[simp]
 def form_or (φ  ψ : formula) : formula := (~φ) ↣ ψ
 infix:60 "⋎" => form_or
